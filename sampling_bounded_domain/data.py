@@ -4,6 +4,33 @@ from autograd.numpy import log, sqrt, sin, cos, exp, pi, prod
 from autograd.numpy.random import normal, uniform
 
 
+class Flower:
+    def __init__(self, radius=1, petals=5, move_out=2):
+        self.radius = radius
+        self.petals = petals
+        self.move_out = move_out
+        
+    def position(self, t):
+        t = t % 1
+        
+        amplitude = np.sin(2*self.petals*np.pi*t) + self.move_out
+        x = amplitude * np.cos(2*np.pi*t)
+        y = amplitude * np.sin(2*np.pi*t)
+        return np.array([x, y]) / 3.5 * self.radius
+    
+    def unit_normal(self, t):
+        t = t % 1
+        
+        amplitude = np.sin(2*self.petals*np.pi*t) + self.move_out
+        delta_amplitude = 2 * self.petals * np.pi * np.sin(2*self.petals*np.pi*t)
+        cos_2pi_t = np.cos(2*np.pi*t)
+        sin_2pi_t = np.sin(2*np.pi*t)
+        tangent_x = delta_amplitude * cos_2pi_t - sin_2pi_t * 2 * np.pi * amplitude
+        tangent_y = delta_amplitude * sin_2pi_t + cos_2pi_t * 2 * np.pi * amplitude
+    
+        normal_vector = np.array([-tangent_y, tangent_x])
+        return np.array([normal_vector]) / np.sqrt(np.sum(normal_vector**2))
+
 class Heart:
     def __init__(self, radius=1):
         self.radius = radius
