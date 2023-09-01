@@ -224,13 +224,6 @@ class Runner():
 
             xs, label = compute_xs_label(x0=x0, samp_t_idx=samp_t_idx)
 
-            # -------- handle for image ---------
-            if util.is_image_dataset(opt):
-                # (batch, T, xdim) --> (batch*T, xdim)
-                xs = util.flatten_dim01(xs)
-                ts = ts.repeat(batch_x)
-                assert xs.shape[0] == ts.shape[0]
-
             optimizer.zero_grad()
 
             predict = policy(xs,ts)
@@ -323,7 +316,7 @@ class Runner():
     @torch.no_grad()
     def compute_NLL(self, opt):
         num_NLL_sample = self.p.num_sample
-        assert util.is_image_dataset(opt) and num_NLL_sample%opt.samp_bs==0
+        assert num_NLL_sample%opt.samp_bs==0
         bpds=[]
         with self.ema_f.average_parameters(), self.ema_b.average_parameters():
             for _ in range(int(num_NLL_sample/opt.samp_bs)):
@@ -334,11 +327,7 @@ class Runner():
 
     @torch.no_grad()
     def evaluate(self, opt, stage, n_reused_trajs=0, metrics=None):
-        if util.is_image_dataset(opt):
-            return self.evaluate_img_dataset(
-                opt, stage, n_reused_trajs=n_reused_trajs, metrics=metrics
-            )
-        elif util.is_toy_dataset(opt):
+        if util.is_toy_dataset(opt):
             _, snapshot, ckpt = util.evaluate_stage(opt, stage, metrics=None)
             if snapshot:
                 for z in [self.z_f, self.z_b]:

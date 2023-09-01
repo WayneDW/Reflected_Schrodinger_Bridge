@@ -31,9 +31,6 @@ def magenta(content): return termcolor.colored(str(content),"magenta",attrs=["bo
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
-def is_image_dataset(opt):
-    return opt.problem_name in ['mnist','cifar10','celebA32','celebA64']
-
 def is_toy_dataset(opt):
     return opt.problem_name in ['gmm','checkerboard', 'moon-to-spiral']
 
@@ -251,76 +248,6 @@ def check_duplication(opt):
 ##       https://github.com/ermongroup/ncsnv2/blob/master/evaluation/inception.py,  ##
 ######################################################################################
 
-def imread(filename):
-    """
-    Loads an image file into a (height, width, 3) uint8 ndarray.
-    """
-    return np.asarray(Image.open(filename), dtype=np.uint8)[..., :3]
-
-
-def get_activations(files, model, batch_size=50, dims=2048,
-                    cuda=False, verbose=False):
-    """Calculates the activations of the pool_3 layer for all images.
-
-    Params:
-    -- files       : List of image files paths
-    -- model       : Instance of inception model
-    -- batch_size  : Batch size of images for the model to process at once.
-                     Make sure that the number of samples is a multiple of
-                     the batch size, otherwise some samples are ignored. This
-                     behavior is retained to match the original FID score
-                     implementation.
-    -- dims        : Dimensionality of features returned by Inception
-    -- cuda        : If set to True, use GPU
-    -- verbose     : If set to True and parameter out_step is given, the number
-                     of calculated batches is reported.
-    Returns:
-    -- A numpy array of dimension (num images, dims) that contains the
-       activations of the given tensor when feeding inception with the
-       query tensor.
-    """
-    model.eval()
-
-    if batch_size > len(files):
-        print(('Warning: batch size is bigger than the data size. '
-               'Setting batch size to data size'))
-        batch_size = len(files)
-
-    pred_arr = np.empty((len(files), dims))
-
-    for i in tqdm(range(0, len(files), batch_size)):
-        if verbose:
-            print('\rPropagating batch %d/%d' % (i + 1, batch_size),
-                  end='', flush=True)
-        start = i
-        end = i + batch_size
-
-        images = np.array([imread(str(f)).astype(np.float32)
-                           for f in files[start:end]])
-
-        # Reshape to (n_images, 3, height, width)
-        images = images.transpose((0, 3, 1, 2))
-        images /= 255
-
-        batch = torch.from_numpy(images).type(torch.FloatTensor)
-        if cuda:
-            batch = batch.cuda()
-
-        pred = model(batch)[0]
-
-        # If model output is not scalar, apply global spatial average pooling.
-        # This happens if you choose a dimensionality not equal 2048.
-        if pred.size(2) != 1 or pred.size(3) != 1:
-            pred = adaptive_avg_pool2d(pred, output_size=(1, 1))
-
-        pred_arr[start:end] = pred.cpu().data.numpy().reshape(pred.size(0), -1)
-
-    if verbose:
-        print(' done')
-
-    return pred_arr
-
-
 def calculate_frechet_distance(mu1, sigma1, mu2, sigma2, eps=1e-6):
     """Numpy implementation of the Frechet Distance.
     The Frechet distance between two multivariate Gaussians X_1 ~ N(mu_1, C_1)
@@ -376,31 +303,6 @@ def calculate_frechet_distance(mu1, sigma1, mu2, sigma2, eps=1e-6):
 
     return (diff.dot(diff) + np.trace(sigma1) +
             np.trace(sigma2) - 2 * tr_covmean)
-
-
-def calculate_activation_statistics(files, model, batch_size=50,
-                                    dims=2048, cuda=False, verbose=False):
-    """Calculation of the statistics used by the FID.
-    Params:
-    -- files       : List of image files paths
-    -- model       : Instance of inception model
-    -- batch_size  : The images numpy array is split into batches with
-                     batch size batch_size. A reasonable batch size
-                     depends on the hardware.
-    -- dims        : Dimensionality of features returned by Inception
-    -- cuda        : If set to True, use GPU
-    -- verbose     : If set to True and parameter out_step is given, the
-                     number of calculated batches is reported.
-    Returns:
-    -- mu    : The mean over samples of the activations of the pool_3 layer of
-               the inception model.
-    -- sigma : The covariance matrix of the activations of the pool_3 layer of
-               the inception model.
-    """
-    act = get_activations(files, model, batch_size, dims, cuda, verbose)
-    mu = np.mean(act, axis=0)
-    sigma = np.cov(act, rowvar=False)
-    return mu, sigma
 
 
 def _compute_statistics_of_path(path, model, batch_size, dims, cuda):
