@@ -55,27 +55,6 @@ class BaseSDE(metaclass=abc.ABCMeta):
 
         return x + (f + g*z)*dt + g*dw
 
-    def propagate_x0_trick(self, x, policy, direction):
-        """ propagate x0 by a tiny step """
-        t0  = torch.Tensor([0])
-        dt0 = self.opt.t0 - 0
-        assert dt0 > 0
-        z0  = policy(x,t0)
-        return self.propagate(t0, x, z0, direction, dt=dt0)
-
-    def denoise_step(self,opt,policy,policy2,x,t):
-        """ currently deprecated function
-        """
-        if opt.sde_type=='ve':#VP's denosing step is just apply_trick2, this is only for VE.
-            # z2 =policy2(x,t)
-            zero=torch.zeros_like(t)
-            z = policy(x,zero)
-            g=self.g(zero)
-            z=z
-            x=x+z/g*self.sigma_min**2*self.opt.t0
-            print('trick applied,sigma_min{}'.format(self.sigma_min))
-        return x
-
     def sample_traj(self, ts, policy, corrector=None, apply_trick=True, save_traj=True):
 
         # first we need to know whether we're doing forward or backward sampling
@@ -89,11 +68,6 @@ class BaseSDE(metaclass=abc.ABCMeta):
         ts = ts if direction=='forward' else torch.flip(ts,dims=[0])
 
         x = init_dist.sample() # [bs, x_dim]
-
-        apply_trick1, apply_trick2, apply_trick3 = compute_tricks_condition(opt, apply_trick, direction)
-
-        # [trick 1] propagate img (x0) by a tiny step
-        if apply_trick1: x = self.propagate_x0_trick(x, policy, direction)
 
         xs = torch.empty((x.shape[0], len(ts), *x.shape[1:])) if save_traj else None
         zs = torch.empty_like(xs) if save_traj else None
@@ -112,8 +86,6 @@ class BaseSDE(metaclass=abc.ABCMeta):
                 xs[:,t_idx,...]=x
                 zs[:,t_idx,...]=z
 
-            # [trick 2] zero out dw
-            if apply_trick2(t_idx=t_idx): dw = torch.zeros_like(dw)
             x = self.propagate(t, x, z, direction, f=f, dw=dw)
 
         x_term = x
@@ -171,33 +143,6 @@ class BaseSDE(metaclass=abc.ABCMeta):
         bits_per_dim = -(logpx_per_dim - np.log(256)) / np.log(2)
         
         return bits_per_dim
-
-def compute_tricks_condition(opt, apply_trick, direction):
-    if not apply_trick:
-        return False, lambda t_idx: False,  False
-
-    # [trick 1] source: Song et al ICLR 2021 Appendix C
-    # when: (i) image, (ii) p -> q, (iii) t0 > 0,
-    # do:   propagate img (x0) by a tiny step.
-    apply_trick1 = (util.is_image_dataset(opt) and direction == 'forward' and opt.t0 > 0)
-
-    # [trick 2] Improved DDPM
-    # when: (i) image, (ii) q -> p, (iii) vp, (iv) last sampling step
-    # do:   zero out dw
-    trick2_cond123 = (util.is_image_dataset(opt) and direction=='backward' and util.use_vp_sde(opt))
-    def _apply_trick2(trick2_cond123, t_idx):
-        return trick2_cond123 and t_idx==0
-    apply_trick2 = partial(_apply_trick2, trick2_cond123=trick2_cond123)
-
-    # [trick 3] NCSNv2, Alg 1
-    # when: (i) image, (ii) q -> p, (iii) last sampling step
-    # do:   additional denoising step
-    trick3_cond12 = (util.is_image_dataset(opt) and direction=='backward')
-    def _apply_trick3(trick3_cond12, t_idx):
-        return trick3_cond12 and t_idx==0
-    apply_trick3 = partial(_apply_trick3, trick3_cond12=trick3_cond12)
-
-    return apply_trick1, apply_trick2, apply_trick3
 
 def divergence_approx(f, y, e=None):
     e_dzdx = torch.autograd.grad(f, y, e, create_graph=True)[0]

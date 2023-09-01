@@ -23,7 +23,7 @@ def compute_div_gz(opt, dyn, ts, xs, policy, return_zs=False):
     zs = policy(xs,ts)
 
     g_ts = dyn.g(ts)
-    g_ts = g_ts[:,None,None,None] if util.is_image_dataset(opt) else g_ts[:,None]
+    g_ts = g_ts[:,None]
     gzs = g_ts*zs
 
     e = sample_e(opt, xs)
