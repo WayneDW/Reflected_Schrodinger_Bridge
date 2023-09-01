@@ -116,41 +116,10 @@ class BaseSDE(metaclass=abc.ABCMeta):
             if apply_trick2(t_idx=t_idx): dw = torch.zeros_like(dw)
             x = self.propagate(t, x, z, direction, f=f, dw=dw)
 
-            if corrector is not None:
-                denoise_xT = False # apply_trick3(t_idx=t_idx) # [trick 3] additional denoising step for xT
-                x  = self.corrector_langevin_update(_t ,x, corrector, denoise_xT)
-
         x_term = x
 
         res = [xs, zs, x_term]
         return res
-
-    def corrector_langevin_update(self, t, x, corrector, denoise_xT):
-        opt = self.opt
-        batch = x.shape[0]
-        alpha_t = compute_alphas(t, opt.beta_min, opt.beta_max) if util.use_vp_sde(opt) else 1.
-        g_t = self.g(t)
-        for _ in range(opt.num_corrector):
-            # here, z = g * score
-            z =  corrector(x,t)
-
-            # score-based model : eps_{SGM} = 2 * alpha * (snr * \norm{noise/score} )^2
-            # schrodinger bridge: eps_{SB}  = 2 * alpha * (snr * \norm{noise/z} )^2
-            #                               = g^{-2} * eps_{SGM}
-            z_avg_norm = z.reshape(batch,-1).norm(dim=1).mean()
-            eps_temp = 2 * alpha_t * (opt.snr / z_avg_norm )**2
-            noise=torch.randn_like(z)
-            noise_avg_norm = noise.reshape(batch,-1).norm(dim=1).mean()
-            eps = eps_temp * (noise_avg_norm**2)
-
-            # score-based model:  x <- x + eps_SGM * score + sqrt{2 * eps_SGM} * noise
-            # schrodinger bridge: x <- x + g * eps_SB * z  + sqrt(2 * eps_SB) * g * noise
-            #                     (so that drift and diffusion are of the same scale) 
-            x = x + g_t*eps*z + g_t*torch.sqrt(2*eps)*noise
-
-        if denoise_xT: x = x + g_t*z
-
-        return x
 
     def compute_nll(self, samp_bs, ts, z_f, z_b):
 

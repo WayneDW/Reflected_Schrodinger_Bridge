@@ -8,9 +8,10 @@ def get_gmm_default_configs():
   config.T = 1.0
   config.interval = 100
   config.train_method = 'alternate'
-  config.t0 = 1e-3 ####### simple sde is 0, now set to 1e-3 following MNIST config file # this part is quite quite important to avoid nan loss in DSM-warm_up
+  #config.t0 = 1e-3 ####### simple sde is 0, now set to 1e-3 following MNIST config file # this part is quite quite important to avoid nan loss in DSM-warm_up
+  config.t0 = 1e-5
   config.problem_name = 'gmm'
-  config.num_itr = 1000
+  config.num_itr = 500
   config.eval_itr = 200
   config.forward_net = 'toy'
   config.backward_net = 'toy'
