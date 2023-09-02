@@ -143,8 +143,8 @@ def save_checkpoint(opt, runner, keys, stage_it, dsm_train_it=None):
 
 def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
     #form of traj: [bs, interval, x_dim=2]
-    fn_npy = os.path.join('results', opt.dir, fn+'.npy')
-    fn_pdf = os.path.join('results', opt.dir, fn+'.pdf')
+    #fn_npy = os.path.join('results', opt.dir, fn+'.npy')
+    fn_pdf = os.path.join('results', opt.dir, f'{opt.problem_name}_{fn}.pdf')
 
     xlims = {
         'gmm': [-17, 17],
