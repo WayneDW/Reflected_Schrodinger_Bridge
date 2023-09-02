@@ -33,7 +33,7 @@ def get_data_dim(problem_name):
 def build_prior_sampler(opt, batch_size):
     if opt.problem_name == 'moon-to-spiral':
         # 'moon-to-spiral' uses Moon as prior distribution
-        return Moon(batch_size)
+        return Moon(batch_size, opt)
 
     prior = td.MultivariateNormal(torch.zeros(opt.data_dim), torch.eye(opt.data_dim[-1]))
     return PriorSampler(prior, batch_size, opt)
@@ -66,6 +66,7 @@ def filter_outside_domain(myHelper, sample, device):
         inside_domain = myHelper.inside_domain(sample[idx, :])
         if inside_domain:
             constrain_sample = torch.cat((constrain_sample, sample[idx, :].reshape(1, -1)), dim=0)
+    constrain_sample = constrain_sample[torch.randperm(constrain_sample.shape[0])]
     return constrain_sample
 
 
@@ -138,14 +139,14 @@ class Spiral:
         self.myHelper = HelperTorch(get_domain(opt), self.device, max_radius=opt.domain_radius)
 
     def sample(self):
-        n = self.batch_size * 2 # to increase the total samples
+        n = self.batch_size * 5 # to increase the total samples
         theta = np.sqrt(np.random.rand(n))*3*np.pi-0.5*np.pi # np.linspace(0,2*pi,100)
 
         r_a = theta + np.pi
         data_a = np.array([np.cos(theta)*r_a, np.sin(theta)*r_a]).T
-        x_a = data_a + 0.25*np.random.randn(n,2)
+        x_a = data_a + 0.5 * np.random.randn(n,2)
         samples = np.append(x_a, np.zeros((n,1)), axis=1)
-        samples = samples[:,0:2]
+        sample = samples[:,0:2]
         sample = torch.Tensor(sample).to(self.device)
         sample = filter_outside_domain(self.myHelper, sample, self.device)
         return sample[0:self.batch_size,:]
@@ -157,13 +158,16 @@ class Moon:
         self.myHelper = HelperTorch(get_domain(opt), self.device, max_radius=opt.domain_radius)
 
     def sample(self):
-        n = self.batch_size #* 5 # to increase the total samples
+        n = self.batch_size * 5 #* 5 # to increase the total samples
         x = np.linspace(0, np.pi, n // 2)
         u = np.stack([np.cos(x) + .5, -np.sin(x) + .2], axis=1) * 10.
         u += 0.5*np.random.normal(size=u.shape)
         v = np.stack([np.cos(x) - .5, np.sin(x) - .2], axis=1) * 10.
         v += 0.5*np.random.normal(size=v.shape)
         x = np.concatenate([u, v], axis=0)
+        """ uplify y-axis by 2 """
+        x[:, 1] += 2.
+        x *= (7 / 9)
         sample = torch.Tensor(x).to(self.device)
         sample = filter_outside_domain(self.myHelper, sample, self.device)
         return sample[0:self.batch_size,:]

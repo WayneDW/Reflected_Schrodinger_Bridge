@@ -23,16 +23,13 @@ def get_moon_to_spiral_default_configs():
   config.samp_bs = 1000
   config.sigma_min = 0.1
   config.sigma_max = 2
-  config.snapshot_freq = 1
+  config.snapshot_freq = 2
   # optimization
-  # config.optim = optim = ml_collections.ConfigDict()
+#   config.optim = optim = ml_collections.ConfigDict()
   config.weight_decay = 0
   config.optimizer = 'AdamW'
   config.lr = 1e-3
   config.lr_gamma = 0.9
-  # domain setting
-  config.domain_name = 'Heart'
-  config.domain_radius = 7.
 
   model_configs=None
   return config, model_configs

@@ -146,18 +146,24 @@ def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
     fn_npy = os.path.join('results', opt.dir, fn+'.npy')
     fn_pdf = os.path.join('results', opt.dir, fn+'.pdf')
 
-    lims = {
+    xlims = {
         'gmm': [-17, 17],
         'checkerboard': [-8, 9],
-        'moon-to-spiral':[-20, 20],
+        'moon-to-spiral':[-12, 12],
+    }.get(opt.problem_name)
+
+    ylims = {
+        'gmm': [-17, 17],
+        'checkerboard': [-8, 9],
+        'moon-to-spiral':[-13, 9],
     }.get(opt.problem_name)
 
     myDomainCurve = get_domain(opt)(radius=opt.domain_radius).position(np.arange(0, 1, 0.001))
 
     if n_snapshot is None: # only store t=0
         plt.scatter(traj[:,0,0],traj[:,0,1], s=5)
-        plt.xlim(*lims)
-        plt.ylim(*lims)
+        plt.xlim(*xlims)
+        plt.ylim(*ylims)
     else:
         total_steps = traj.shape[1]
         sample_steps = np.linspace(0, total_steps-1, n_snapshot).astype(int)
@@ -166,9 +172,9 @@ def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
         color = 'salmon' if direction=='forward' else 'royalblue'
         for ax, step in zip(axs, sample_steps):
             ax.scatter(traj[:,step,0],traj[:,step,1], s=5, color=color)
-            ax.scatter(myDomainCurve[0, :],myDomainCurve[1, :], s=5, alpha=0.1, color=color)
-            ax.set_xlim(*lims)
-            ax.set_ylim(*lims)
+            ax.scatter(myDomainCurve[0, :],myDomainCurve[1, :], s=5, alpha=0.05, color=color)
+            ax.set_xlim(*xlims)
+            ax.set_ylim(*ylims)
             ax.set_title('time = {:.2f}'.format(step/(total_steps-1)*opt.T))
         fig.tight_layout()
 
