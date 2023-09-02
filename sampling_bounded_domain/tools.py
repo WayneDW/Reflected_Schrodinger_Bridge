@@ -9,6 +9,7 @@ class Helper:
         self.myClass = myClass(radius=max_radius)
         self.cached_points_list = []
         self.grid_radius = grid_radius
+        self.max_radius = max_radius
         for radius in np.arange(0., max_radius, max_radius*grid_radius):
             curClass = myClass(radius=radius)
             candidate_points = curClass.position(np.arange(0, 1, grid_curve))
@@ -17,7 +18,7 @@ class Helper:
     def inside_domain(self, test_point=np.array([1, -0.6])):
         test_point = test_point.reshape(1, -1, 1)
         min_rmse = np.min(np.sqrt(np.sum((self.cached_points_list - test_point)**2, axis=1)))
-        return min_rmse < self.grid_radius
+        return min_rmse < self.grid_radius * self.max_radius
     
     def binary_search_boundary(self, left, right):
         if not self.inside_domain(left):
