@@ -10,7 +10,7 @@ def get_moon_to_spiral_default_configs():
   config.train_method = 'alternate'
   config.t0 = 0
   config.problem_name = 'moon-to-spiral'
-  config.num_itr = 25 # 0
+  config.num_itr = 500
   config.eval_itr = 200
   config.forward_net = 'toy'
   config.backward_net = 'toy'
