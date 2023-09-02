@@ -25,10 +25,6 @@ def get_data_dim(problem_name):
         'gmm':          [2],
         'checkerboard': [2],
         'moon-to-spiral':[2],
-        'mnist':       [1,32,32],
-        'celebA32':    [3,32,32],
-        'celebA64':    [3,64,64],
-        'cifar10':     [3,32,32],
     }.get(problem_name)
 
 def build_prior_sampler(opt, batch_size):
@@ -37,7 +33,7 @@ def build_prior_sampler(opt, batch_size):
         return Moon(batch_size)
 
     # image+VESDE -> use (sigma_max)^2; otherwise use 1.
-    cov_coef = opt.sigma_max**2 if (util.is_image_dataset(opt) and not util.use_vp_sde(opt)) else 1.
+    cov_coef = opt.sigma_max**2 if not util.use_vp_sde(opt) else 1.
     prior = td.MultivariateNormal(torch.zeros(opt.data_dim), cov_coef*torch.eye(opt.data_dim[-1]))
     return PriorSampler(prior, batch_size, opt.device)
 
@@ -48,17 +44,6 @@ def build_data_sampler(opt, batch_size):
             'checkerboard': CheckerBoard,
             'moon-to-spiral': Spiral,
         }.get(opt.problem_name)(batch_size)
-
-    elif util.is_image_dataset(opt):
-        dataset_generator = {
-            'mnist':      generate_mnist_dataset,
-            'celebA32':   generate_celebA_dataset,
-            'celebA64':   generate_celebA_dataset,
-            'cifar10':    generate_cifar10_dataset,
-        }.get(opt.problem_name)
-        dataset = dataset_generator(opt)
-        return DataSampler(dataset, batch_size, opt.device)
-
     else:
         raise RuntimeError()
 
@@ -121,7 +106,7 @@ class Spiral:
         self.batch_size = batch_size
 
     def sample(self):
-        n = self.batch_size
+        n = self.batch_size #* 5 # to increase the total samples
         theta = np.sqrt(np.random.rand(n))*3*np.pi-0.5*np.pi # np.linspace(0,2*pi,100)
 
         r_a = theta + np.pi
@@ -129,6 +114,9 @@ class Spiral:
         x_a = data_a + 0.25*np.random.randn(n,2)
         samples = np.append(x_a, np.zeros((n,1)), axis=1)
         samples = samples[:,0:2]
+        #samples = samples[np.arange(samples.shape[0])[(samples > 7).sum(axis=1) == 0], :]
+        #samples = samples[np.arange(samples.shape[0])[(samples < -7).sum(axis=1) == 0], :]
+        #samples = samples[range(self.batch_size), :]
         return torch.Tensor(samples)
 
 class Moon:
@@ -136,14 +124,20 @@ class Moon:
         self.batch_size = batch_size
 
     def sample(self):
-        n = self.batch_size
+        n = self.batch_size #* 5 # to increase the total samples
         x = np.linspace(0, np.pi, n // 2)
         u = np.stack([np.cos(x) + .5, -np.sin(x) + .2], axis=1) * 10.
         u += 0.5*np.random.normal(size=u.shape)
         v = np.stack([np.cos(x) - .5, np.sin(x) - .2], axis=1) * 10.
         v += 0.5*np.random.normal(size=v.shape)
         x = np.concatenate([u, v], axis=0)
-        return torch.Tensor(x)
+        
+        samples = x
+        #samples = samples[np.arange(samples.shape[0])[(samples > 7).sum(axis=1) == 0], :]
+        #samples = samples[np.arange(samples.shape[0])[(samples < -7).sum(axis=1) == 0], :]
+        #samples = samples[range(self.batch_size), :]
+
+        return torch.Tensor(samples)
 
 class DataSampler: # a dump data sampler
     def __init__(self, dataset, batch_size, device):
@@ -181,59 +175,3 @@ def setup_loader(dataset, batch_size):
 class DataLoaderX(DataLoader):
     def __iter__(self):
         return BackgroundGenerator(super().__iter__())
-
-def generate_celebA_dataset(opt,load_train=True):
-    if opt.problem_name=='celebA32': #Our own data preprocessing
-        transforms_list=[
-            transforms.Resize(32),
-            transforms.CenterCrop(32),
-            transforms.RandomHorizontalFlip(p=0.5),
-            transforms.ToTensor(),
-        ]
-    elif opt.problem_name=='celebA64':
-        transforms_list=[ #Normal Data preprocessing
-            transforms.Resize([64,64]), #DSB type resizing
-            transforms.RandomHorizontalFlip(p=0.5),
-            transforms.ToTensor(),
-        ]
-    else:
-        raise RuntimeError()
-
-    if util.use_vp_sde(opt):
-        transforms_list+=[transforms.Lambda(lambda t: (t * 2) - 1),]
-
-    return datasets.ImageFolder(
-        root='data/celebA/img_align_celeba/',
-        transform=transforms.Compose(transforms_list)
-    )
-
-def generate_mnist_dataset(opt,load_train=True):
-    transforms_list=[
-        transforms.Pad(2,fill=0), #left and right 2+2=4 padding
-        transforms.ToTensor(),
-    ]
-    if util.use_vp_sde(opt):
-        transforms_list+=[transforms.Lambda(lambda t: (t * 2) - 1),]
-
-    return datasets.MNIST(
-        'data',
-        train= not opt.compute_NLL,
-        download=load_train,
-        transform=transforms.Compose(transforms_list)
-    )
-
-def generate_cifar10_dataset(opt,load_train=True):
-    transforms_list=[
-        transforms.Resize(32),
-        transforms.RandomHorizontalFlip(p=0.5),
-        transforms.ToTensor(), #Convert to [0,1]
-    ]
-    if util.use_vp_sde(opt):
-        transforms_list+=[transforms.Lambda(lambda t: (t * 2) - 1),]
-
-    return datasets.CIFAR10(
-        'data',
-        train= not opt.compute_NLL,
-        download=load_train,
-        transform=transforms.Compose(transforms_list)
-    )

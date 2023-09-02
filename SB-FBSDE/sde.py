@@ -45,18 +45,21 @@ class BaseSDE(metaclass=abc.ABCMeta):
 
     def dw(self, x, dt=None):
         dt = self.dt if dt is None else dt
-        return torch.randn_like(x)*np.sqrt(dt)
+        return torch.randn_like(x) * np.sqrt(dt)
 
     def propagate(self, t, x, z, direction, f=None, dw=None, dt=None):
-        g = self.g(  t)
-        f = self.f(x,t,direction) if f is None else f
+        g = self.g(t)
+        f = self.f(x, t, direction) if f is None else f
         dt = self.dt if dt is None else dt
-        dw = self.dw(x,dt) if dw is None else dw
+        dw = self.dw(x, dt) if dw is None else dw
 
-        return x + (f + g*z)*dt + g*dw
+        new_x = x + (f + g * z) * dt + g * dw
+        #""" try simple reflection now """
+        #new_x[new_x > 7] = 14 - new_x[new_x > 7]
+        #new_x[new_x < -7] = -14 - new_x[new_x < -7]
+        return new_x
 
     def sample_traj(self, ts, policy, corrector=None, apply_trick=True, save_traj=True):
-
         # first we need to know whether we're doing forward or backward sampling
         opt = self.opt
         direction = policy.direction
@@ -64,8 +67,8 @@ class BaseSDE(metaclass=abc.ABCMeta):
 
         # set up ts and init_distribution
         _assert_increasing('ts', ts)
-        init_dist = self.p if direction=='forward' else self.q
-        ts = ts if direction=='forward' else torch.flip(ts,dims=[0])
+        init_dist = self.p if direction == 'forward' else self.q
+        ts = ts if direction == 'forward' else torch.flip(ts, dims=[0])
 
         x = init_dist.sample() # [bs, x_dim]
 
@@ -73,18 +76,18 @@ class BaseSDE(metaclass=abc.ABCMeta):
         zs = torch.empty_like(xs) if save_traj else None
 
         # don't use tqdm for fbsde since it'll resample every itr
-        _ts = ts if opt.train_method=='joint' else tqdm(ts,desc=util.yellow("Propagating Dynamics..."))
+        _ts = ts if opt.train_method == 'joint' else tqdm(ts,desc=util.yellow("Propagating Dynamics..."))
         for idx, t in enumerate(_ts):
-            _t=t if idx==ts.shape[0]-1 else ts[idx+1]
+            _t = t if idx == ts.shape[0] - 1 else ts[idx+1]
 
-            f = self.f(x,t,direction)
-            z =policy(x,t)
+            f = self.f(x, t, direction)
+            z = policy(x, t)
             dw = self.dw(x)
 
-            t_idx = idx if direction=='forward' else len(ts)-idx-1
+            t_idx = idx if direction == 'forward' else len(ts) - idx - 1
             if save_traj:
-                xs[:,t_idx,...]=x
-                zs[:,t_idx,...]=z
+                xs[:, t_idx,...] = x
+                zs[:, t_idx,...] = z
 
             x = self.propagate(t, x, z, direction, f=f, dw=dw)
 
@@ -109,10 +112,10 @@ class BaseSDE(metaclass=abc.ABCMeta):
 
             with torch.set_grad_enabled(True):
                 x.requires_grad_(True)
-                g = self.g(  t)
-                f = self.f(x,t,'forward')
-                z = z_f(x,t)
-                z2 = z_b(x,t)
+                g = self.g(t)
+                f = self.f(x, t,'forward')
+                z = z_f(x, t)
+                z2 = z_b(x, t)
 
                 dx_dt = f + g * z - 0.5 * g * (z + z2)
                 divergence = divergence_approx(dx_dt, x, e=e)
@@ -130,7 +133,7 @@ class BaseSDE(metaclass=abc.ABCMeta):
 
             if idx == 0: # skip t = t0 since we'll get its parametrized value later
                 continue
-            delta_logp = delta_logp + dlogp_x_dt*self.dt
+            delta_logp = delta_logp + dlogp_x_dt * self.dt
 
         x_dim = np.prod(opt.data_dim)
         loc = torch.zeros(x_dim).to(opt.device)
