@@ -11,6 +11,10 @@ import torch
 import torchvision.utils as tu
 from torch.nn.functional import adaptive_avg_pool2d
 
+from data import get_domain
+from domain import Flower, Polygon, Heart, Cross, Star
+from tools import HelperTorch, Sampler
+
 try:
     from tqdm import tqdm
 except ImportError:
@@ -144,9 +148,11 @@ def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
 
     lims = {
         'gmm': [-17, 17],
-        'checkerboard': [-7, 7],
+        'checkerboard': [-8, 9],
         'moon-to-spiral':[-20, 20],
     }.get(opt.problem_name)
+
+    myDomainCurve = get_domain(opt)(radius=opt.domain_radius).position(np.arange(0, 1, 0.001))
 
     if n_snapshot is None: # only store t=0
         plt.scatter(traj[:,0,0],traj[:,0,1], s=5)
@@ -160,6 +166,7 @@ def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
         color = 'salmon' if direction=='forward' else 'royalblue'
         for ax, step in zip(axs, sample_steps):
             ax.scatter(traj[:,step,0],traj[:,step,1], s=5, color=color)
+            ax.scatter(myDomainCurve[0, :],myDomainCurve[1, :], s=5, alpha=0.1, color=color)
             ax.set_xlim(*lims)
             ax.set_ylim(*lims)
             ax.set_title('time = {:.2f}'.format(step/(total_steps-1)*opt.T))

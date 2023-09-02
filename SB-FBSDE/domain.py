@@ -1,7 +1,6 @@
-import autograd.numpy as np
-from autograd import grad
-from autograd.numpy import log, sqrt, sin, cos, exp, pi, prod
-from autograd.numpy.random import normal, uniform
+import numpy as np
+from numpy import log, sqrt, sin, cos, exp, pi, prod
+from numpy.random import normal, uniform
 
 
 class Flower:

@@ -8,6 +8,11 @@ import util
 import loss
 from ipdb import set_trace as debug
 
+from data import get_domain
+from domain import Flower, Polygon, Heart, Cross, Star
+from tools import HelperTorch, Sampler
+
+
 def _assert_increasing(name, ts):
     assert (ts[1:] > ts[:-1]).all(), '{} must be strictly increasing'.format(name)
 
@@ -24,9 +29,11 @@ def build(opt, p, q):
 class BaseSDE(metaclass=abc.ABCMeta):
     def __init__(self, opt, p, q):
         self.opt = opt
-        self.dt=opt.T/opt.interval
+        self.dt = opt.T / opt.interval
         self.p = p # data distribution
         self.q = q # prior distribution
+
+        self.myHelper = HelperTorch(get_domain(opt), device=opt.device, max_radius=opt.domain_radius)
 
     @abc.abstractmethod
     def _f(self, x, t):
@@ -53,11 +60,21 @@ class BaseSDE(metaclass=abc.ABCMeta):
         dt = self.dt if dt is None else dt
         dw = self.dw(x, dt) if dw is None else dw
 
-        new_x = x + (f + g * z) * dt + g * dw
-        #""" try simple reflection now """
-        #new_x[new_x > 7] = 14 - new_x[new_x > 7]
-        #new_x[new_x < -7] = -14 - new_x[new_x < -7]
-        return new_x
+        sample = x + (f + g * z) * dt + g * dw
+        """ new module """
+        constrain_sample = torch.empty((0, 2)).to(self.opt.device)
+        for idx in range(sample.shape[0]):
+            inside_domain = self.myHelper.inside_domain(sample[idx, :])
+            if inside_domain:
+                constrain_sample = torch.cat((constrain_sample, sample[idx, :].reshape(1, -1)), dim=0)
+            else:
+                reflected_points = self.myHelper.get_reflection(x[idx, :], sample[idx, :])
+                """ when reflection fails in extreme cases """
+                while not self.myHelper.inside_domain(reflected_points):
+                    reflected_points = reflected_points * 0.99
+                constrain_sample = torch.cat((constrain_sample, reflected_points.reshape(1, -1)), dim=0)
+
+        return constrain_sample
 
     def sample_traj(self, ts, policy, corrector=None, apply_trick=True, save_traj=True):
         # first we need to know whether we're doing forward or backward sampling

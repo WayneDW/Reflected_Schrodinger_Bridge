@@ -272,10 +272,11 @@ class Runner():
             n_reused_trajs = forward_ep * opt.samp_bs if opt.reuse_traj else 0
             reused_sampler = self.evaluate(opt, stage+1, n_reused_trajs=n_reused_trajs)
 
-            # train forward policy
-            self.sb_alternate_train_stage(
-                opt, stage, forward_ep, 'forward', reused_sampler=reused_sampler
-            )
+            if stage < opt.num_stage - 1:
+                # train forward policy
+                self.sb_alternate_train_stage(
+                    opt, stage, forward_ep, 'forward', reused_sampler=reused_sampler
+                )
 
         if opt.log_tb: self.writer.close()
 

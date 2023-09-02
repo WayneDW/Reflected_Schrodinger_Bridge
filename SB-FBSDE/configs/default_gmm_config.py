@@ -29,8 +29,11 @@ def get_gmm_default_configs():
   # config.optim = optim = ml_collections.ConfigDict()
   config.weight_decay = 0
   config.optimizer = 'AdamW'
-  config.lr = 1e-3
+  config.lr = 1e-4
   config.lr_gamma = 0.9
+  # domain setting
+  config.domain_name = 'Polygon'
+  config.domain_radius = 13.
 
   model_configs=None
 

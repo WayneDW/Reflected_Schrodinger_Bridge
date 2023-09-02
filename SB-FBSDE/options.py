@@ -81,10 +81,6 @@ def set():
         'gmm':          configs.get_gmm_default_configs,
         'checkerboard': configs.get_checkerboard_default_configs,
         'moon-to-spiral':configs.get_moon_to_spiral_default_configs,
-        'cifar10':      configs.get_cifar10_default_configs,
-        'celebA64':     configs.get_celebA64_default_configs,
-        'celebA32':     configs.get_celebA32_default_configs,
-        'mnist':        configs.get_mnist_default_configs,
     }.get(problem_name)()
     parser.set_defaults(**default_config)
 

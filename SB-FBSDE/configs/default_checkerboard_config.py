@@ -4,13 +4,13 @@ def get_checkerboard_default_configs():
   config = ml_collections.ConfigDict()
   # training
   config.training = training = ml_collections.ConfigDict()
-  config.seed=42 #The utlimate answer of UNIVERSE!
+  config.seed = 42 #The utlimate answer of UNIVERSE!
   config.T = 1.0
   config.interval = 100
   config.train_method = 'alternate'
   config.t0 = 0
   config.problem_name = 'checkerboard'
-  config.num_itr = 250
+  config.num_itr = 500
   config.eval_itr = 200
   config.forward_net = 'toy'
   config.backward_net = 'toy'
@@ -25,11 +25,16 @@ def get_checkerboard_default_configs():
   config.sigma_max = 2
   config.snapshot_freq = 2
   # optimization
-#   config.optim = optim = ml_collections.ConfigDict()
+  # config.optim = optim = ml_collections.ConfigDict()
   config.weight_decay = 0
   config.optimizer = 'AdamW'
-  config.lr = 1e-3
+  config.lr = 3e-4
   config.lr_gamma = 0.9
 
+  # domain settings
+  config.domain_name = 'Flower'
+  config.domain_radius = 7.
+
   model_configs=None
+
   return config, model_configs

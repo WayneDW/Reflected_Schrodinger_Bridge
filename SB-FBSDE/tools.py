@@ -1,23 +1,27 @@
-import autograd.numpy as np
-from autograd import grad
-from autograd.numpy import log, sqrt, sin, cos, exp, pi, prod
-from autograd.numpy.random import normal, uniform
+import numpy as np
+from numpy import log, sqrt, sin, cos, exp, pi, prod
+from numpy.random import normal, uniform
+
+import torch
 
 
-class Helper:
-    def __init__(self, myClass, max_radius=1, grid_radius=1e-2, grid_curve=1e-3): # finer grid is much slower
+class HelperTorch:
+    def __init__(self, myClass, device='cpu', max_radius=1, grid_radius=1e-2, grid_curve=1e-3): # finer grid is much slower
         self.myClass = myClass(radius=max_radius)
-        self.cached_points_list = []
         self.grid_radius = grid_radius
         self.max_radius = max_radius
+        self.cached_points_list = []
+        self.device = device
         for radius in np.arange(0., max_radius, max_radius*grid_radius):
             curClass = myClass(radius=radius)
             candidate_points = curClass.position(np.arange(0, 1, grid_curve))
             self.cached_points_list.append(candidate_points)
+            
+        self.cached_points_list = torch.Tensor(self.cached_points_list).to(self.device)
     
-    def inside_domain(self, test_point=np.array([1, -0.6])):
-        test_point = test_point.reshape(1, -1, 1)
-        min_rmse = np.min(np.sqrt(np.sum((self.cached_points_list - test_point)**2, axis=1)))
+    def inside_domain(self, test_point=torch.Tensor([1, -0.6])):
+        test_point = test_point.reshape(1, -1, 1).to(self.device)
+        min_rmse = torch.min(torch.sqrt(torch.sum((self.cached_points_list - test_point)**2, dim=1)))
         return min_rmse < self.grid_radius * self.max_radius
     
     def binary_search_boundary(self, left, right):
@@ -30,9 +34,9 @@ class Helper:
         while not self.inside_domain(right) and cnt < 10:
             mid = (left + right) / 2
             if self.inside_domain(mid):
-                left = mid.copy()
+                left = mid.clone()
             else:
-                right = mid.copy()
+                right = mid.clone()
             cnt += 1
         return mid
     
@@ -42,24 +46,24 @@ class Helper:
         nu = right - boundary
         # compute unit normal vector
         grid_arrays = np.arange(0, 1, self.grid_radius)
-        points = self.myClass.position(grid_arrays)
-        idx = np.argmin(np.sum((points - boundary.reshape(-1, 1))**2, axis=0))
+        points = torch.Tensor(self.myClass.position(grid_arrays)).to(self.device)
+        idx = torch.argmin(torch.sum((points - boundary.reshape(-1, 1))**2, dim=0))
         boundary_t = grid_arrays[idx]
-        unit_normal = self.myClass.unit_normal(boundary_t)
+        unit_normal = torch.Tensor(self.myClass.unit_normal(boundary_t)).to(self.device)
 
         # http://www.sunshine2k.de/articles/coding/vectorreflection/vectorreflection.html
-        reflected_nu = nu - 2 * np.inner(nu, unit_normal) * unit_normal
+        reflected_nu = nu - 2 * torch.inner(nu, unit_normal) * unit_normal
         reflection_points = boundary + reflected_nu
         return boundary + reflected_nu
-    
-    
+
 class Sampler:
-    def __init__(self, myHelper, boundary=None, xinit=None, lr=0.1, T=1.0):
+    def __init__(self, myHelper, device='cpu', boundary=None, xinit=None, lr=0.1, T=1.0):
         self.lr = lr
         self.T = T
-        self.x = np.array(xinit)
-        self.list = np.empty((2, 0))
         self.myHelper = myHelper
+        self.device = device
+        self.x = torch.Tensor(xinit).to(self.device)
+        self.list = torch.empty((2, 0)).to(self.device)
     
     def reflection(self, prev_beta, beta):
         if self.myHelper.inside_domain(beta):
@@ -74,7 +78,10 @@ class Sampler:
 
     
     def rgld_step(self, iters):  
-        noise = sqrt(2. * self.lr * self.T) * normal(size=2)
+        if self.device.startswith('cuda'):
+            noise = torch.cuda.FloatTensor(2).normal_().mul(sqrt(2. * self.lr * self.T))
+        else:
+            noise = torch.normal(mean=0., std=1., size=[2]) * sqrt(2. * self.lr * self.T)
         proposal = self.x - self.lr * self.x + noise
         self.x = self.reflection(self.x, proposal)
         
