@@ -93,7 +93,7 @@ class BaseSDE(metaclass=abc.ABCMeta):
         zs = torch.empty_like(xs) if save_traj else None
 
         # don't use tqdm for fbsde since it'll resample every itr
-        _ts = ts if opt.train_method == 'joint' else tqdm(ts,desc=util.yellow("Propagating Dynamics..."))
+        _ts = ts if opt.train_method == 'joint' else tqdm(ts,desc=util.yellow(f"Propagating {direction} dynamics..."))
         for idx, t in enumerate(_ts):
             _t = t if idx == ts.shape[0] - 1 else ts[idx+1]
 

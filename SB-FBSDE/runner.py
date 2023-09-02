@@ -333,11 +333,16 @@ class Runner():
             if snapshot:
                 for z in [self.z_f, self.z_b]:
                     z = freeze_policy(z)
+                    
                     xs, _, _ = self.dyn.sample_traj(self.ts, z, save_traj=True)
-
+                    xs = xs.detach().cpu()
+                    """ improve the number of data points in plots """
+                    for _ in range(4):
+                        xs_other, _, _ = self.dyn.sample_traj(self.ts, z, save_traj=True)
+                        xs = torch.cat([xs, xs_other.detach().cpu()], axis=0)
                     fn = "stage{}-{}".format(stage, z.direction)
                     util.save_toy_npy_traj(
-                        opt, fn, xs.detach().cpu().numpy(), n_snapshot=5, direction=z.direction
+                        opt, fn, xs.numpy(), n_snapshot=5, direction=z.direction
                     )
             if ckpt:
                 keys = ['z_f','optimizer_f','ema_f','z_b','optimizer_b','ema_b']
