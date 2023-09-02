@@ -21,8 +21,8 @@ def get_moon_to_spiral_default_configs():
   config.sde_type = 've'
   # sampling
   config.samp_bs = 1000
-  config.sigma_min = 0.01
-  config.sigma_max = 2
+  config.sigma_min = 0.03
+  config.sigma_max = 1
   config.snapshot_freq = 2
   # optimization
   # config.optim = optim = ml_collections.ConfigDict()
