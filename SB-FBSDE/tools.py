@@ -56,35 +56,14 @@ class HelperTorch:
         reflection_points = boundary + reflected_nu
         return boundary + reflected_nu, boundary
 
-class Sampler:
-    def __init__(self, myHelper, device='cpu', boundary=None, xinit=None, lr=0.1, T=1.0):
-        self.lr = lr
-        self.T = T
-        self.myHelper = myHelper
-        self.device = device
-        self.x = torch.Tensor(xinit).to(self.device)
-        self.list = torch.empty((2, 0)).to(self.device)
-    
-    def reflection(self, prev_beta, beta):
-        if self.myHelper.inside_domain(beta):
+
+    def map_reflection(self, prev_beta, beta):
+        if self.inside_domain(beta):
             return beta
         else:
-            reflected_points, boundary = self.myHelper.get_reflection(prev_beta, beta)
+            reflected_points, boundary = self.get_reflection(prev_beta, beta)
             """ numerical discretization may fail to reflect in extreme cases """
-            if not self.myHelper.inside_domain(reflected_points):
+            if not self.inside_domain(reflected_points):
                 reflected_points = boundary
             
             return reflected_points
-
-    
-    def rgld_step(self, iters):  
-        if self.device.startswith('cuda'):
-            noise = torch.cuda.FloatTensor(2).normal_().mul(sqrt(2. * self.lr * self.T))
-        else:
-            noise = torch.normal(mean=0., std=1., size=[2]) * sqrt(2. * self.lr * self.T)
-        proposal = self.x - self.lr * self.x + noise
-        self.x = self.reflection(self.x, proposal)
-        
-        if iters % 50 == 0:
-            self.list = np.concatenate((self.list, \
-                                        self.x.reshape(-1, 1)), axis=1)

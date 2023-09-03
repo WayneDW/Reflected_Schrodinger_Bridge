@@ -169,16 +169,6 @@ class Runner():
             # -------- build sample --------
             ts = train_ts[samp_t_idx].detach()
 
-
-            print('== cohen fix ==' * 100)
-            train_xs = train_xs.to(opt.device)
-            samp_t_idx = samp_t_idx.to(opt.device)
-            samp_x_idx = samp_x_idx.to(opt.device)
-            train_zs = train_zs.to(opt.device)
-
-            #print('samp_t_idx', samp_t_idx)
-            #print('samp_x_idx', samp_x_idx)
-            #print('train_xs', train_xs)
             xs = train_xs[samp_x_idx][:, samp_t_idx, ...].to(opt.device)
             zs_impt = train_zs[samp_x_idx][:, samp_t_idx, ...].to(opt.device)
 

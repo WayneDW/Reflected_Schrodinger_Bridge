@@ -10,7 +10,7 @@ from ipdb import set_trace as debug
 
 from data import get_domain
 from domain import Flower, Polygon, Heart, Cross, Star
-from tools import HelperTorch, Sampler
+from tools import HelperTorch
 
 
 def _assert_increasing(name, ts):
@@ -64,6 +64,9 @@ class BaseSDE(metaclass=abc.ABCMeta):
         """ new module """
         constrain_sample = torch.empty((0, 2)).to(self.opt.device)
         for idx in range(sample.shape[0]):
+            projected_sample = self.myHelper.map_reflection(x[idx, :], sample[idx, :])
+            constrain_sample = torch.cat((constrain_sample, projected_sample.reshape(1, -1)), dim=0)
+            '''
             inside_domain = self.myHelper.inside_domain(sample[idx, :])
             if inside_domain:
                 constrain_sample = torch.cat((constrain_sample, sample[idx, :].reshape(1, -1)), dim=0)
@@ -73,7 +76,7 @@ class BaseSDE(metaclass=abc.ABCMeta):
                 while not self.myHelper.inside_domain(reflected_points):
                     reflected_points = reflected_points * 0.99
                 constrain_sample = torch.cat((constrain_sample, reflected_points.reshape(1, -1)), dim=0)
-
+            '''
         return constrain_sample
 
     def sample_traj(self, ts, policy, corrector=None, apply_trick=True, save_traj=True):

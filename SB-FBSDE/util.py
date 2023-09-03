@@ -13,7 +13,7 @@ from torch.nn.functional import adaptive_avg_pool2d
 
 from data import get_domain
 from domain import Flower, Polygon, Heart, Cross, Star
-from tools import HelperTorch, Sampler
+from tools import HelperTorch
 
 try:
     from tqdm import tqdm

@@ -12,7 +12,7 @@ import util
 from ipdb import set_trace as debug
 
 from domain import Flower, Polygon, Heart, Cross, Star
-from tools import HelperTorch, Sampler
+from tools import HelperTorch
 
 def build_boundary_distribution(opt):
     print(util.magenta("build boundary distribution..."))
