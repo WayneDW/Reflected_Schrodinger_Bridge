@@ -21,7 +21,7 @@ def get_gmm_default_configs():
   config.train_bs_x = 1024
   config.sde_type = 'vp'
   # sampling
-  config.samp_bs = 256
+  config.samp_bs = 4000
   config.sigma_min = 0.1
   config.sigma_max = 2
   config.snapshot_freq = 1

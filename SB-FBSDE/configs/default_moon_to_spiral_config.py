@@ -18,12 +18,14 @@ def get_moon_to_spiral_default_configs():
   config.num_epoch = 1
   config.num_stage = 10
   config.train_bs_x = 1000
-  config.sde_type = 've'
+  config.sde_type = 'vp'
   # sampling
-  config.samp_bs = 1000
-  config.sigma_min = 0.03
-  config.sigma_max = 1
-  config.snapshot_freq = 2
+  config.samp_bs = 4000
+  config.sigma_min = 0.05
+  config.sigma_max = 0.5
+  config.beta_min = 0.1
+  config.beta_max = 5
+  config.snapshot_freq = 6
   # optimization
   # config.optim = optim = ml_collections.ConfigDict()
   config.weight_decay = 0

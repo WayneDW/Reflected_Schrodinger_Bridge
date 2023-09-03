@@ -20,10 +20,12 @@ def get_checkerboard_default_configs():
   config.train_bs_x = 1000
   config.sde_type = 'simple'
   # sampling
-  config.samp_bs = 1000
-  config.sigma_min = 0.1
-  config.sigma_max = 2
-  config.snapshot_freq = 2
+  config.samp_bs = 4000
+  config.sigma_min = 0.2
+  config.sigma_max = 1
+  config.beta_min = 0.1
+  config.beta_max = 5
+  config.snapshot_freq = 6
   # optimization
   # config.optim = optim = ml_collections.ConfigDict()
   config.weight_decay = 0
