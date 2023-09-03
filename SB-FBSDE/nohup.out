@@ -116,3 +116,1049 @@ main.py: error: argument --lr: invalid float value: '{lr}'
 [1m[33m     Likelihood-Training of Schrodinger Bridge[0m
 [1m[33m=======================================================[0m
 [1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+[1m[31mSet export MKL_SERVICE_FORCE_INTEL=1 before Calling it[0m
+[1m[32mApplying the custom GPU 0[0m
+Error: mkl-service + Intel(R) MKL: MKL_THREADING_LAYER=INTEL is incompatible with libgomp.so.1 library.
+	Try to import numpy first or set the threading layer accordingly. Set MKL_SERVICE_FORCE_INTEL to force it.
+usage: main.py [-h] [--problem-name PROBLEM_NAME] [--seed SEED] [--gpu GPU]
+               [--load LOAD] [--dir DIR] [--group GROUP] [--name NAME]
+               [--log-fn LOG_FN] [--log-tb] [--cpu] [--t0 T0] [--T T]
+               [--interval INTERVAL] [--forward-net {toy,Unet,ncsnpp}]
+               [--backward-net {toy,Unet,ncsnpp}] [--sde-type {ve,vp,simple}]
+               [--sigma-max SIGMA_MAX] [--sigma-min SIGMA_MIN]
+               [--beta-max BETA_MAX] [--beta-min BETA_MIN]
+               [--train-method TRAIN_METHOD] [--use-arange-t] [--reuse-traj]
+               [--use-corrector] [--train-bs-x TRAIN_BS_X]
+               [--train-bs-t TRAIN_BS_T] [--num-stage NUM_STAGE]
+               [--num-epoch NUM_EPOCH] [--num-corrector NUM_CORRECTOR]
+               [--snr SNR] [--eval-itr EVAL_ITR] [--samp-bs SAMP_BS]
+               [--num-itr NUM_ITR] [--DSM-warmup]
+               [--train-bs-x-dsm TRAIN_BS_X_DSM]
+               [--train-bs-t-dsm TRAIN_BS_T_DSM] [--num-itr-dsm NUM_ITR_DSM]
+               [--lr LR] [--lr-f LR_F] [--lr-b LR_B] [--lr-gamma LR_GAMMA]
+               [--lr-step LR_STEP] [--l2-norm L2_NORM] [--optimizer OPTIMIZER]
+               [--grad-clip GRAD_CLIP] [--noise-type {gaussian,rademacher}]
+               [--FID-freq FID_FREQ] [--snapshot-freq SNAPSHOT_FREQ]
+               [--ckpt-freq CKPT_FREQ] [--FID-ckpt FID_CKPT]
+               [--num-FID-sample NUM_FID_SAMPLE] [--compute-FID]
+               [--compute-NLL]
+main.py: error: argument --lr: invalid float value: '{lr}'
+[1m[33m=======================================================[0m
+[1m[33m     Likelihood-Training of Schrodinger Bridge[0m
+[1m[33m=======================================================[0m
+[1m[35msetting configurations...[0m
+[1m[31mSet export MKL_SERVICE_FORCE_INTEL=1 before Calling it[0m
+[1m[32mApplying the custom GPU 1[0m
