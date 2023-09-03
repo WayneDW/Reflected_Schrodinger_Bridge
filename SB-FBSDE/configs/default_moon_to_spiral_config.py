@@ -8,30 +8,30 @@ def get_moon_to_spiral_default_configs():
   config.T = 1.0
   config.interval = 100
   config.train_method = 'alternate'
-  config.t0 = 1e-4
+  config.t0 = 1e-5
   config.problem_name = 'moon-to-spiral'
-  config.num_itr = 250
+  config.num_itr = 800
   config.eval_itr = 200
   config.forward_net = 'toy'
   config.backward_net = 'toy'
   config.use_arange_t = True
   config.num_epoch = 1
-  config.num_stage = 10
+  config.num_stage = 18
   config.train_bs_x = 1000
   config.sde_type = 'vp'
   # sampling
   config.samp_bs = 4000
   config.sigma_min = 0.05
   config.sigma_max = 0.5
-  config.beta_min = 0.1
-  config.beta_max = 5
-  config.snapshot_freq = 6
+  config.beta_min = 0.03
+  config.beta_max = 3
+  config.snapshot_freq = 2
   # optimization
   # config.optim = optim = ml_collections.ConfigDict()
   config.weight_decay = 0
   config.optimizer = 'AdamW'
-  config.lr = 1e-3
-  config.lr_gamma = 0.9
+  config.lr = 6e-4
+  config.lr_gamma = 0.8
   # domain setting
   config.domain_name = 'Heart'
   config.domain_radius = 7.
