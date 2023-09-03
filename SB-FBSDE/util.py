@@ -11,6 +11,7 @@ import torch
 import torchvision.utils as tu
 from torch.nn.functional import adaptive_avg_pool2d
 
+import pandas as pd
 import seaborn
 from scipy import stats
 
@@ -151,7 +152,7 @@ def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
 
     xlims = {
         'gmm': [-17, 17],
-        'checkerboard': [-8, 9],
+        'checkerboard': [-8.5, 8.5],
         'moon-to-spiral':[-12, 12],
     }.get(opt.problem_name)
 
@@ -170,10 +171,10 @@ def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
     else:
         total_steps = traj.shape[1]
         sample_steps = np.linspace(0, total_steps-1, n_snapshot).astype(int)
+        color = 'salmon' if direction=='forward' else 'royalblue'
         ''' # original plot
         fig, axs = plt.subplots(1, n_snapshot)
         fig.set_size_inches(n_snapshot*6, 6)
-        color = 'salmon' if direction=='forward' else 'royalblue'
         for ax, step in zip(axs, sample_steps):
             ax.scatter(traj[:,step,0],traj[:,step,1], s=5, color=color)
             ax.scatter(myDomainCurve[0, :],myDomainCurve[1, :], s=5, alpha=0.05, color=color)
@@ -187,8 +188,12 @@ def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
         num_col = np.ceil(n_snapshot/num_row).astype(int)
         plt.style.use('default')
         fig, axes = plt.subplots(num_row, num_col, figsize=[num_col*2.5, num_row*2.5])
-        plt.subplots_adjust(hspace=0.0, wspace=0.0)
-        fig.patch.set_facecolor('lightgrey')
+        show_boundary = True
+        if show_boundary:
+            plt.subplots_adjust(hspace=0.0, wspace=0.01)
+        else:
+            plt.subplots_adjust(hspace=0.0, wspace=0.0) # Yu's original
+        #fig.patch.set_facecolor('lightgrey') # Yu's original
         axes = axes.reshape(-1)
 
         for ax, step in zip(axes, sample_steps):
@@ -197,14 +202,20 @@ def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
             kernel = stats.gaussian_kde(values)(values)
 
             ax = fig.add_subplot(ax)
-            cmap = 'viridis'
-            seaborn.scatterplot(x=x, y=y, s=8, c=kernel, vmin=-0.002, cmap=cmap, alpha=0.5)
-            seaborn.scatterplot(x=myDomainCurve[0, :], y=myDomainCurve[1, :], s=3, alpha=0.05)
+            cmap = 'flare' if direction == 'forward' else 'crest'
+            bcol = 'salmon' if direction == 'forward' else 'darkgreen'
+            seaborn.scatterplot(x=x, y=y, s=4, c=kernel, vmin=-0.002, cmap=cmap, alpha=0.5)
+            seaborn.scatterplot(x=myDomainCurve[0, :], y=myDomainCurve[1, :], s=4, color=bcol, alpha=0.1)
             ax.set_xlim(*xlims)
             ax.set_ylim(*ylims)
-            ax.axis('off')
-        plt.axis('off')
-
+            if show_boundary:
+                plt.tick_params(left = False, right = False , labelleft = False ,
+                        labelbottom = False, bottom = False)
+                plt.setp(ax.spines.values(), color='lightgrey', alpha=0.3)
+            else:  
+                ax.axis('off')
+        #plt.axis('off')
+        fig.tight_layout()
     plt.savefig(fn_pdf)
     #np.save(fn_npy, traj)
     plt.clf()
