@@ -54,7 +54,7 @@ class HelperTorch:
         # http://www.sunshine2k.de/articles/coding/vectorreflection/vectorreflection.html
         reflected_nu = nu - 2 * torch.inner(nu, unit_normal) * unit_normal
         reflection_points = boundary + reflected_nu
-        return boundary + reflected_nu
+        return boundary + reflected_nu, boundary
 
 class Sampler:
     def __init__(self, myHelper, device='cpu', boundary=None, xinit=None, lr=0.1, T=1.0):
@@ -69,10 +69,10 @@ class Sampler:
         if self.myHelper.inside_domain(beta):
             return beta
         else:
-            reflected_points = self.myHelper.get_reflection(prev_beta, beta)
-            """ when reflection fails in extreme cases """
-            while not self.myHelper.inside_domain(reflected_points):
-                reflected_points = reflected_points * 0.99
+            reflected_points, boundary = self.myHelper.get_reflection(prev_beta, beta)
+            """ numerical discretization may fail to reflect in extreme cases """
+            if not self.myHelper.inside_domain(reflected_points):
+                reflected_points = boundary
             
             return reflected_points
 
