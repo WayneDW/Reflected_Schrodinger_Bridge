@@ -11,6 +11,9 @@ import torch
 import torchvision.utils as tu
 from torch.nn.functional import adaptive_avg_pool2d
 
+import seaborn
+from scipy import stats
+
 from data import get_domain
 from domain import Flower, Polygon, Heart, Cross, Star
 from tools import HelperTorch
@@ -167,6 +170,7 @@ def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
     else:
         total_steps = traj.shape[1]
         sample_steps = np.linspace(0, total_steps-1, n_snapshot).astype(int)
+        ''' # original plot
         fig, axs = plt.subplots(1, n_snapshot)
         fig.set_size_inches(n_snapshot*6, 6)
         color = 'salmon' if direction=='forward' else 'royalblue'
@@ -177,6 +181,29 @@ def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
             ax.set_ylim(*ylims)
             ax.set_title('time = {:.2f}'.format(step/(total_steps-1)*opt.T))
         fig.tight_layout()
+        '''
+        """ Test Yu's new plot """
+        num_row = 1
+        num_col = np.ceil(n_snapshot/num_row).astype(int)
+        plt.style.use('default')
+        fig, axes = plt.subplots(num_row, num_col, figsize=[num_col*2.5, num_row*2.5])
+        plt.subplots_adjust(hspace=0.0, wspace=0.0)
+        fig.patch.set_facecolor('lightgrey')
+        axes = axes.reshape(-1)
+
+        for ax, step in zip(axes, sample_steps):
+            x, y = traj[:, step, 0], traj[:, step, 1]
+            values = np.vstack([x, y])
+            kernel = stats.gaussian_kde(values)(values)
+
+            ax = fig.add_subplot(ax)
+            cmap = 'viridis'
+            seaborn.scatterplot(x=x, y=y, s=8, c=kernel, vmin=-0.002, cmap=cmap, alpha=0.5)
+            seaborn.scatterplot(x=myDomainCurve[0, :], y=myDomainCurve[1, :], s=3, alpha=0.05)
+            ax.set_xlim(*xlims)
+            ax.set_ylim(*ylims)
+            ax.axis('off')
+        plt.axis('off')
 
     plt.savefig(fn_pdf)
     #np.save(fn_npy, traj)
