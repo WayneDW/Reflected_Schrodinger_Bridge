@@ -19,6 +19,20 @@ else:
 #print(myColor('Set export MKL_SERVICE_FORCE_INTEL=1 before Calling it', 'red'))
 #os.system('export MKL_SERVICE_FORCE_INTEL=1')
 
+"""
+checkerboard best settings:
+   best vpsde: 500itr, stage=12, beta=0.03, beta=0.6, lr=6e-4, gamma=0.8, t0=1e-4
+   minor   ve: 500itr, stage=18, sigma=0.03, max=0.3, lr=3e-4, gamma=0.9, t0=0  
+
+GMM best settings:
+        VPSDE: 500itr, stage=18, beta=0.03, 0.6, lr=1e-3, gamma=0.8, t0=0
+
+Moon-to-Spiral
+        VPSDE: 250itr, stage=18, beta=0.03, max=3, lr=6e-4, gamma=0.8, t0=0
+
+"""
+
+
 for i in range(20):
     name = np.random.choice(['moon-to-spiral', 'gmm'])
     lr = np.random.choice([1e-3, 6e-4, 3e-4, 1e-4, 6e-4, 3e-4, 6e-5])
