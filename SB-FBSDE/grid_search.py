@@ -34,9 +34,11 @@ for i in range(20):
         sigma_min = np.random.choice([0.03, 0.1, 0.3])
         sigma_max = np.random.choice([0.3, 0.6, 1, 3, 6])
         running_comment += f' --sigma-min {sigma_min} --sigma-max {sigma_max}'
+        output_folder += f'_sigma_min_{sigma_min}_max_{sigma_max}'
     elif sde_type == 'vp':
         beta_min = np.random.choice([0.03, 0.1, 0.3])
         beta_max = np.random.choice([0.3, 0.6, 1, 3, 6])
         running_comment += f' --beta-min {beta_min} --beta-max {beta_max}'
-
+        output_folder += f'_beta_min_{beta_min}_max_{beta_max}'
+    running_comment += ' --problem_name {name} --lr {lr} --lr_gamma {lr_gamma} --t0 {t0} --sde_type {sde_type} --num_itr {num_itr} --stage {stage}'
     os.system(running_comment)
