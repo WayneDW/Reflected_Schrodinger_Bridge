@@ -33,14 +33,14 @@ Moon-to-Spiral
 """
 
 
-for i in range(3):
+for i in range(2):
     name = np.random.choice(['checkerboard'])
     lr = np.random.choice([6e-4, 4e-4, 8e-4])
     lr_gamma = np.random.choice([0.8])
-    t0 = np.random.choice([0, 3e-4, 1e-4, 3e-5])
+    t0 = np.random.choice([1e-4, 3e-5])
     sde_type = np.random.choice(['vp'])
-    num_itr = np.random.choice([400, 500, 800])
-    stage = np.random.choice([12, 18, 24])
+    num_itr = np.random.choice([800])
+    stage = np.random.choice([30])
 
     output_folder = f'{name}_lr_{lr}_gamma_{lr_gamma}_t0_{t0}_sde_{sde_type}_itr_{num_itr}_stage_{stage}'
     running_comment = f'python main.py --problem-name {name} --forward-net toy  --backward-net toy --log-tb --gpu {gpu}'
@@ -50,10 +50,10 @@ for i in range(3):
         running_comment += f' --sigma-min {sigma_min} --sigma-max {sigma_max}'
         output_folder += f'_sigma_min_{sigma_min}_max_{sigma_max}'
     elif sde_type == 'vp':
-        beta_min = np.random.choice([0.02, 0.03, 0.04, 0.05])
-        beta_max = np.random.choice([0.4, 0.5, 0.6, 0.7, 0.8])
+        beta_min = np.random.choice([0.04, 0.05])
+        beta_max = np.random.choice([0.5])
         running_comment += f' --beta-min {beta_min} --beta-max {beta_max}'
         output_folder += f'_beta_min_{beta_min}_max_{beta_max}'
     running_comment += f' --lr {lr} --lr-gamma {lr_gamma} --t0 {t0} --sde-type {sde_type} --num-itr {num_itr} --num-stage {stage} --dir {output_folder}'
-
+    print(running_comment)
     os.system(running_comment)
