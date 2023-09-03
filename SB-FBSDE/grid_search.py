@@ -20,7 +20,7 @@ else:
 #os.system('export MKL_SERVICE_FORCE_INTEL=1')
 
 for i in range(20):
-    name = np.random.choice(['moon-to-spiral', 'checkerboard'])
+    name = np.random.choice(['moon-to-spiral', 'gmm'])
     lr = np.random.choice([1e-3, 6e-4, 3e-4, 1e-4, 6e-4, 3e-4, 6e-5])
     lr_gamma = np.random.choice([0.9, 0.8])
     t0 = np.random.choice([0, 0, 0, 0, 1e-3, 1e-4, 1e-4])
