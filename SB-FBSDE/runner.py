@@ -169,7 +169,6 @@ class Runner():
             # -------- build sample --------
             ts = train_ts[samp_t_idx].detach()
 
-
             train_xs = train_xs.to(opt.device)
             samp_t_idx = samp_t_idx.to(opt.device)
             samp_x_idx = samp_x_idx.to(opt.device)
