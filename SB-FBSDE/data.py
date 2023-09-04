@@ -27,13 +27,16 @@ def get_data_dim(problem_name):
     return {
         'gmm':          [2],
         'checkerboard': [2],
-        'moon-to-spiral':[2],
+        'moon-to-spiral': [2],
+        'smile-to-checkerboard': [2]
     }.get(problem_name)
 
 def build_prior_sampler(opt, batch_size):
     if opt.problem_name == 'moon-to-spiral':
         # 'moon-to-spiral' uses Moon as prior distribution
         return Moon(batch_size, opt)
+    elif opt.problem_name == 'smile-to-checkerboard':
+        return Smile(batch_size, opt)
 
     prior = td.MultivariateNormal(torch.zeros(opt.data_dim), torch.eye(opt.data_dim[-1]))
     return PriorSampler(prior, batch_size, opt)
@@ -44,6 +47,7 @@ def build_data_sampler(opt, batch_size):
             'gmm': MixMultiVariateNormal,
             'checkerboard': CheckerBoard,
             'moon-to-spiral': Spiral,
+            'smile-to-checkerboard': CheckerBoard,
         }.get(opt.problem_name)(batch_size, opt)
     else:
         raise RuntimeError()
@@ -169,6 +173,40 @@ class Moon:
         x[:, 1] += 2.
         x *= (7 / 9)
         sample = torch.Tensor(x).to(self.device)
+        sample = filter_outside_domain(self.myHelper, sample, self.device)
+        return sample[0:self.batch_size,:]
+
+
+class Smile:
+    def __init__(self, batch_size, opt):
+        self.batch_size = batch_size
+        self.device = opt.device
+        self.myHelper = HelperTorch(get_domain(opt), self.device, max_radius=opt.domain_radius)
+
+    def sample(self):
+        x = np.linspace(0.5, np.pi-0.5, self.batch_size)
+        lip = np.stack([np.cos(x), -np.sin(x)-0.2*x], axis=1) * 1.5
+        lip += 0.01 * np.random.normal(size=lip.shape)
+        lip = lip.transpose()
+        
+        leye = np.random.normal(size=lip.shape) / 7
+        leye[0, :] -= 1.2
+        leye[1, :] += 0.7
+
+        leyeBall = Flower(petals=1, move_out=1).position(np.arange(0, 1, 0.001)) * 2
+        leyeBall[0, :] -= 1.4
+        leyeBall[1, :] += 0.35
+
+        reye = np.random.normal(size=lip.shape) / 7
+        reye[0, :] += 1.6
+        reye[1, :] += 0.7
+
+        reyeBall = Flower(petals=1, move_out=1).position(np.arange(0, 1, 0.001)) * 2
+        reyeBall[0, :] += 1.4
+        reyeBall[1, :] += 0.35
+
+        points = np.concatenate([lip, leyeBall, leye, reye, reyeBall], axis=1).transpose()
+        sample = torch.Tensor(points).to(self.device)
         sample = filter_outside_domain(self.myHelper, sample, self.device)
         return sample[0:self.batch_size,:]
 

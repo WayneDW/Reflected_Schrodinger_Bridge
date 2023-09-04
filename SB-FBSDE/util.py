@@ -40,7 +40,7 @@ def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
 def is_toy_dataset(opt):
-    return opt.problem_name in ['gmm','checkerboard', 'moon-to-spiral']
+    return opt.problem_name in ['gmm','checkerboard', 'moon-to-spiral', 'smile-to-checkerboard']
 
 def use_vp_sde(opt):
     return opt.sde_type == 'vp'
@@ -148,18 +148,20 @@ def save_checkpoint(opt, runner, keys, stage_it, dsm_train_it=None):
 def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
     #form of traj: [bs, interval, x_dim=2]
     #fn_npy = os.path.join('results', opt.dir, fn+'.npy')
-    fn_pdf = os.path.join('results', opt.dir, f'{opt.problem_name}_{fn}.pdf')
+    fn_pdf = os.path.join('results', opt.dir, f'{opt.problem_name}_{fn}.png')
 
     xlims = {
         'gmm': [-17, 17],
         'checkerboard': [-8.5, 8.5],
         'moon-to-spiral':[-12, 12],
+        'smile-to-checkerboard': [-8.5, 8.5],
     }.get(opt.problem_name)
 
     ylims = {
         'gmm': [-17, 17],
         'checkerboard': [-8, 9],
         'moon-to-spiral':[-13, 9],
+        'smile-to-checkerboard': [-8.5, 8.5],
     }.get(opt.problem_name)
 
     myDomainCurve = get_domain(opt)(radius=opt.domain_radius).position(np.arange(0, 1, 0.001))
@@ -204,19 +206,19 @@ def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
             ax = fig.add_subplot(ax)
             cmap = 'flare' if direction == 'forward' else 'crest'
             bcol = 'salmon' if direction == 'forward' else 'darkgreen'
-            seaborn.scatterplot(x=x, y=y, s=4, c=kernel, vmin=-0.002, cmap=cmap, alpha=0.5)
-            seaborn.scatterplot(x=myDomainCurve[0, :], y=myDomainCurve[1, :], s=4, color=bcol, alpha=0.1)
+            seaborn.scatterplot(x=x, y=y, s=4, c=kernel, vmin=-0.002, cmap=cmap, alpha=1.0)
+            seaborn.scatterplot(x=myDomainCurve[0, :], y=myDomainCurve[1, :], s=5, color=bcol, alpha=1.0)
             ax.set_xlim(*xlims)
             ax.set_ylim(*ylims)
             if show_boundary:
                 plt.tick_params(left = False, right = False , labelleft = False ,
                         labelbottom = False, bottom = False)
-                plt.setp(ax.spines.values(), color='lightgrey', alpha=0.3)
+                plt.setp(ax.spines.values(), color='grey')
             else:  
                 ax.axis('off')
         #plt.axis('off')
         fig.tight_layout()
-    plt.savefig(fn_pdf)
+    plt.savefig(fn_pdf, dpi=250)
     #np.save(fn_npy, traj)
     plt.clf()
 

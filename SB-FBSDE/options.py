@@ -80,7 +80,8 @@ def set():
     default_config, model_configs = {
         'gmm':          configs.get_gmm_default_configs,
         'checkerboard': configs.get_checkerboard_default_configs,
-        'moon-to-spiral':configs.get_moon_to_spiral_default_configs,
+        'moon-to-spiral': configs.get_moon_to_spiral_default_configs,
+        'smile-to-checkerboard': configs.get_smile_to_checkerboard_default_configs,
     }.get(problem_name)()
     parser.set_defaults(**default_config)
 

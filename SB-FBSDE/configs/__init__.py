@@ -1,3 +1,5 @@
 from .default_gmm_config import get_gmm_default_configs
 from .default_checkerboard_config import get_checkerboard_default_configs
 from .default_moon_to_spiral_config import get_moon_to_spiral_default_configs
+from .default_smile_to_checkerboard_config import get_smile_to_checkerboard_default_configs
+
