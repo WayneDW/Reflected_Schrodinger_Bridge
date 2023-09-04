@@ -41,7 +41,7 @@ for i in range(20):
     t0 = np.random.choice([0])
     sde_type = np.random.choice(['vp'])
     num_itr = np.random.choice([500])
-    stage = np.random.choice([18])
+    stage = np.random.choice([12])
 
     output_folder = f'{name}_lr_{lr}_gamma_{lr_gamma}_t0_{t0}_sde_{sde_type}_itr_{num_itr}_stage_{stage}'
     running_comment = f'python main.py --problem-name {name} --forward-net toy  --backward-net toy --log-tb --gpu {gpu}'
