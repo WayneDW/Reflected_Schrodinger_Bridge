@@ -33,7 +33,7 @@ Moon-to-Spiral
 """
 
 
-for i in range(1):
+for i in range(10):
     #name = np.random.choice(['moon-to-spiral', 'smile-to-checkerboard'])
     name = 'smile-to-checkerboard'
     lr = np.random.choice([1e-3, 6e-4, 3e-4])
