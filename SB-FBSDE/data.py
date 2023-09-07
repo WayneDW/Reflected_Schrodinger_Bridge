@@ -184,9 +184,10 @@ class Smile:
         self.myHelper = HelperTorch(get_domain(opt), self.device, max_radius=opt.domain_radius)
 
     def sample(self):
+        noise_scale = 0.03
         x = np.linspace(0.5, np.pi-0.5, self.batch_size)
         lip = np.stack([np.cos(x), -np.sin(x)-0.2*x], axis=1) * 1.5
-        lip += 0.01 * np.random.normal(size=lip.shape)
+        lip += 2 * noise_scale * np.random.normal(size=lip.shape)
         lip = lip.transpose()
         
         leye = np.random.normal(size=lip.shape) / 7
@@ -194,6 +195,7 @@ class Smile:
         leye[1, :] += 0.7
 
         leyeBall = Flower(petals=1, move_out=1).position(np.arange(0, 1, 0.001)) * 2
+        leyeBall += noise_scale * np.random.normal(size=leyeBall.shape)
         leyeBall[0, :] -= 1.4
         leyeBall[1, :] += 0.35
 
@@ -202,6 +204,7 @@ class Smile:
         reye[1, :] += 0.7
 
         reyeBall = Flower(petals=1, move_out=1).position(np.arange(0, 1, 0.001)) * 2
+        reyeBall += noise_scale * np.random.normal(size=reyeBall.shape)
         reyeBall[0, :] += 1.4
         reyeBall[1, :] += 0.35
 

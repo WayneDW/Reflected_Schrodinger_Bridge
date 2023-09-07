@@ -33,15 +33,15 @@ Moon-to-Spiral
 """
 
 
-for i in range(20):
+for i in range(1):
     #name = np.random.choice(['moon-to-spiral', 'smile-to-checkerboard'])
     name = 'smile-to-checkerboard'
     lr = np.random.choice([1e-3, 6e-4, 3e-4])
     lr_gamma = np.random.choice([0.8])
     t0 = np.random.choice([0])
-    sde_type = np.random.choice(['vp'])
+    sde_type = np.random.choice(['vp', 've', 'simple'])
     num_itr = np.random.choice([500])
-    stage = np.random.choice([12])
+    stage = np.random.choice([8])
 
     output_folder = f'{name}_lr_{lr}_gamma_{lr_gamma}_t0_{t0}_sde_{sde_type}_itr_{num_itr}_stage_{stage}'
     running_comment = f'python main.py --problem-name {name} --forward-net toy  --backward-net toy --log-tb --gpu {gpu}'
