@@ -36,7 +36,7 @@ Moon-to-Spiral
 for i in range(20):
     #name = np.random.choice(['moon-to-spiral', 'smile-to-checkerboard'])
     #name = 'smile-to-checkerboard'
-    name = 'gmm'
+    name = np.random.choice(['moon-to-spiral', 'checkerboard'])
     lr = np.random.choice([1e-3, 3e-4, 2e-4, 1e-4, 8e-5, 6e-5])
     lr_gamma = np.random.choice([0.8])
     t0 = np.random.choice([0])
@@ -58,6 +58,6 @@ for i in range(20):
         output_folder += f'_beta_min_{beta_min}_max_{beta_max}'
 
     mySeed = np.random.randint(0, 1e5) 
-    running_comment += f' --lr {lr} --lr-gamma {lr_gamma} --t0 {t0} --sde-type {sde_type} --num-itr {num_itr} --num-stage {stage} --dir {output_folder} --seed {mySeed} --ckpt-freq 1  '
+    running_comment += f' --lr {lr} --lr-gamma {lr_gamma} --t0 {t0} --sde-type {sde_type} --num-itr {num_itr} --num-stage {stage} --dir {output_folder} --seed {mySeed} --ckpt-freq 1 '
 
     os.system(running_comment)
