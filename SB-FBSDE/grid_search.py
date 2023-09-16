@@ -58,6 +58,6 @@ for i in range(20):
         output_folder += f'_beta_min_{beta_min}_max_{beta_max}'
 
     mySeed = np.random.randint(0, 1e5) 
-    running_comment += f' --lr {lr} --lr-gamma {lr_gamma} --t0 {t0} --sde-type {sde_type} --num-itr {num_itr} --num-stage {stage} --dir {output_folder} --mySeed {mySeed}'
+    running_comment += f' --lr {lr} --lr-gamma {lr_gamma} --t0 {t0} --sde-type {sde_type} --num-itr {num_itr} --num-stage {stage} --dir {output_folder} --seed {mySeed} --ckpt-freq 1  '
 
     os.system(running_comment)
