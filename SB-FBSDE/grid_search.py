@@ -56,6 +56,8 @@ for i in range(20):
         beta_max = np.random.choice([0.5, 0.75, 1.0])
         running_comment += f' --beta-min {beta_min} --beta-max {beta_max}'
         output_folder += f'_beta_min_{beta_min}_max_{beta_max}'
-    running_comment += f' --lr {lr} --lr-gamma {lr_gamma} --t0 {t0} --sde-type {sde_type} --num-itr {num_itr} --num-stage {stage} --dir {output_folder}'
+
+    mySeed = np.random.randint(0, 1e5) 
+    running_comment += f' --lr {lr} --lr-gamma {lr_gamma} --t0 {t0} --sde-type {sde_type} --num-itr {num_itr} --num-stage {stage} --dir {output_folder} --mySeed {mySeed}'
 
     os.system(running_comment)
