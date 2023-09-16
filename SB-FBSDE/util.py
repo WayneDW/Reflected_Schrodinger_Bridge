@@ -136,9 +136,10 @@ def restore_checkpoint(opt, runner, load_name):
 
 def save_checkpoint(opt, runner, keys, stage_it, dsm_train_it=None):
     checkpoint = {}
-    fn = opt.ckpt_path + "/stage_{0}{1}.npz".format(
-        stage_it, '_dsm{}'.format(dsm_train_it) if dsm_train_it is not None else ''
-    )
+    #fn = opt.ckpt_path + "/stage_{0}{1}.npz".format(
+    #    stage_it, '_dsm{}'.format(dsm_train_it) if dsm_train_it is not None else ''
+    #)
+    fn = opt.ckpt_path + f"/{opt.problem_name}_stage_{stage_it}_seed_{opt.seed}.npz"
     with torch.cuda.device(opt.gpu):
         for k in keys:
             checkpoint[k] = getattr(runner,k).state_dict()

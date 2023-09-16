@@ -346,7 +346,7 @@ class Runner():
                     xs, _, _ = self.dyn.sample_traj(self.ts, z, save_traj=True)
                     fn = "stage{}-{}".format(stage, z.direction)
                     util.save_toy_npy_traj(
-                        opt, fn, xs.detach().cpu().numpy(), n_snapshot=4, direction=z.direction
+                        opt, fn, xs.detach().cpu().numpy(), n_snapshot=11, direction=z.direction
                     )
             if ckpt:
                 keys = ['z_f','optimizer_f','ema_f','z_b','optimizer_b','ema_b']

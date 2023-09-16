@@ -43,5 +43,5 @@ def get_gmm_default_configs():
   config.train_bs_t_dsm = 192
   #config.train_bs_t = 4
   config.num_itr_dsm = 10000 # # 5000 #100 # 5000
-  config.DSM_warmup = True
+  config.DSM_warmup = False
   return config, model_configs

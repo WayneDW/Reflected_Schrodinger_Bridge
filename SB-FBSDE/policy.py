@@ -62,14 +62,12 @@ class SchrodingerBridgePolicy(torch.nn.Module):
     def forward(self, x, t):
         # make sure t.shape = [batch]
         t = t.squeeze()
-        if t.dim()==0: t = t.repeat(x.shape[0])
-        assert t.dim()==1 and t.shape[0] == x.shape[0]
+        if t.dim() == 0: t = t.repeat(x.shape[0])
+        assert t.dim() == 1 and t.shape[0] == x.shape[0]
 
         if self.use_t_idx:
             t = t / self.opt.T * self.opt.interval
-
         out = self.net(x, t)
-
         # if the SB policy behaves as "Z" in FBSDE system,
         # the output should be scaled by the diffusion coefficient "g".
         if self.scale_by_g:
