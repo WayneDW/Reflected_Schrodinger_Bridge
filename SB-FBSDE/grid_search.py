@@ -31,12 +31,13 @@ Moon-to-Spiral
         VPSDE: 250itr, stage=18, beta=0.03, max=3, lr=6e-4, gamma=0.8, t0=0
 
 """
-
+print('===='*1000)
+os.system('sleep 90m')
 
 for i in range(20):
     #name = np.random.choice(['moon-to-spiral', 'smile-to-checkerboard'])
     #name = 'smile-to-checkerboard'
-    name = np.random.choice(['moon-to-spiral', 'checkerboard'])
+    name = np.random.choice(['checkerboard'])
     lr = np.random.choice([1e-3, 3e-4, 2e-4, 1e-4, 8e-5, 6e-5])
     lr_gamma = np.random.choice([0.8])
     t0 = np.random.choice([0])
