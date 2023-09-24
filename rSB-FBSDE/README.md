@@ -17,20 +17,20 @@ python main.py --problem-name checkerboard --forward-net toy  --backward-net toy
 
 IPF stage 2
 <p float="left">
-  <img src="results/output/checkerboard_stage2-backward.png" width="800"  title="Backward"/>
-  <img src="results/output/checkerboard_stage2-forward.png" width="800"   title="Forward" />
+  <img src="./results/output/checkerboard_stage2-backward.png" width="800"  title="Backward"/>
+  <img src="./results/output/checkerboard_stage2-forward.png" width="800"   title="Forward" />
 </p>
 
 IPF stage 10
 <p float="left">
-  <img src="results/output/checkerboard_stage10-backward.png" width="800"  title="Backward"/>
-  <img src="results/output/checkerboard_stage10-forward.png" width="800"   title="Forward" />
+  <img src="./results/output/checkerboard_stage10-backward.png" width="800"  title="Backward"/>
+  <img src="./results/output/checkerboard_stage10-forward.png" width="800"   title="Forward" />
 </p>
 
 IPF stage 20
 <p float="left">
-  <img src="results/output/checkerboard_stage20-backward.png" width="800"  title="Backward"/>
-  <img src="results/output/checkerboard_stage20-forward.png" width="800"   title="Forward" />
+  <img src="./results/output/checkerboard_stage20-backward.png" width="800"  title="Backward"/>
+  <img src="./results/output/checkerboard_stage20-forward.png" width="800"   title="Forward" />
 </p>
 
 ```bash
