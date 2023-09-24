@@ -25,13 +25,13 @@ The folder **SB-FBSDE** demonstrates constrained generative modeling through ref
 
 A demo of transport from moon to spiral on the heart domain.
 <p float="left">
-  <img src="figures/moon-to-spiral_stage12-forward.png" width="250"  title="Flower"/>
-  <img src="figures/moon-to-spiral_stage12-backward.png" width="250"   title="Heart" /> 
+  <img src="figures/moon-to-spiral_stage12-forward.png" width="800"  title="Flower"/>
+  <img src="figures/moon-to-spiral_stage12-backward.png" width="800"   title="Heart" /> 
 </p>
 
 
 The vector field of the moon to spiral transport.
 <p float="left">
-  <img src="figures/moon-to-spiral_vec_field_forward_v1.png" width="250"  title="Flower"/>
-  <img src="figures/moon-to-spiral_vec_field_backward_v1.png" width="250"   title="Heart" /> 
+  <img src="figures/moon-to-spiral_vec_field_forward_v1.png" width="800"  title="Flower"/>
+  <img src="figures/moon-to-spiral_vec_field_backward_v1.png" width="800"   title="Heart" /> 
 </p>
