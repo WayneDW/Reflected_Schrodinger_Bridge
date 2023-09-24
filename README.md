@@ -6,7 +6,7 @@ This repo shows how to implement **Reflected Schrodinger Bridge**.
 
 ### Part I: Reflected Langevin dynamics
 
-The folder **sampling_bounded_domain** shows how to implement reflected Langevin dynamics using the cache trick.
+The folder **sampling_bounded_domain** includes two jupyter notebooks to show how to implement reflected Langevin dynamics using the cache trick.
 
 
 The following is a gif demo to show the trajectories.
@@ -20,7 +20,7 @@ The following is a gif demo to show the trajectories.
 
 ### Part II: Reflected Schrödinger bridge
 
-The folder **SB-FBSDE** demonstrates constrained generative modeling through reflected Schrödinger bridge.
+The folder **rSB-FBSDE** demonstrates constrained generative modeling through reflected Schrödinger bridge.
 
 
 A demo of transport from moon to spiral on the heart domain.
@@ -32,6 +32,6 @@ A demo of transport from moon to spiral on the heart domain.
 
 The vector field of the moon to spiral transport.
 <p float="left">
-  <img src="figures/moon-to-spiral_vec_field_forward.png" width="800"  title="Flower"/>
-  <img src="figures/moon-to-spiral_vec_field_backward.png" width="800"   title="Heart" /> 
+  <img src="figures/moon-to-spiral_vec_field_forward_v1.png" width="800"  title="Flower"/>
+  <img src="figures/moon-to-spiral_vec_field_backward_v1.png" width="800"   title="Heart" /> 
 </p>
