@@ -175,18 +175,6 @@ def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
         total_steps = traj.shape[1]
         sample_steps = np.linspace(0, total_steps-1, n_snapshot).astype(int)
         color = 'salmon' if direction=='forward' else 'royalblue'
-        ''' # original plot
-        fig, axs = plt.subplots(1, n_snapshot)
-        fig.set_size_inches(n_snapshot*6, 6)
-        for ax, step in zip(axs, sample_steps):
-            ax.scatter(traj[:,step,0],traj[:,step,1], s=5, color=color)
-            ax.scatter(myDomainCurve[0, :],myDomainCurve[1, :], s=5, alpha=0.05, color=color)
-            ax.set_xlim(*xlims)
-            ax.set_ylim(*ylims)
-            ax.set_title('time = {:.2f}'.format(step/(total_steps-1)*opt.T))
-        fig.tight_layout()
-        '''
-        """ Test Yu's new plot """
         num_row = 1
         num_col = np.ceil(n_snapshot/num_row).astype(int)
         plt.style.use('default')

@@ -1,4 +1,4 @@
-name: sb-fbsde
+name: rsb-fbsde
 channels:
   - anaconda
   - pytorch
@@ -6,6 +6,7 @@ channels:
   - defaults
 dependencies:
   - numpy
+  - seaborn
   - scipy
   - termcolor
   - easydict
