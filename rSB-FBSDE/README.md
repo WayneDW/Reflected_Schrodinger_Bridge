@@ -2,7 +2,8 @@
 
 ## Installation
 
-This code is developed with Python3. PyTorch >=1.7 (we recommend 1.8.1). First, install the dependencies with [Anaconda](https://www.anaconda.com/products/individual) and activate the environment `rsb-fbsde` with
+Similar to [SB-FBSDE](https://github.com/ghliu/SB-FBSDE), this code is built based on Python3 and PyTorch >=1.7 (we recommend 1.8.1). You can first install the dependencies from [Anaconda](https://www.anaconda.com/products/individual) and activate the environment `rsb-fbsde` as follows
+
 ```bash
 conda env create --file requirements.yaml python=3
 conda activate rsb-fbsde
@@ -42,4 +43,4 @@ python main.py --problem-name moon-to-spiral --forward-net toy  --backward-net t
 
 ##  Acknowledgement
 
-This repo heavily depends on [SB-FBSDE](https://github.com/ghliu/SB-FBSDE)
+This repo heavily depends on [SB-FBSDE](https://github.com/ghliu/SB-FBSDE).
