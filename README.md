@@ -15,8 +15,6 @@ The following is a gif demo to show the trajectories.
   <img src="figures/heart.gif" width="250"   title="Heart" /> 
 </p>
 
-
-
 ### Part II: Reflected Schrödinger bridge
 
 The folder **rSB-FBSDE** demonstrates constrained generative modeling through reflected Schrödinger bridge.
