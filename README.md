@@ -17,7 +17,6 @@ The following is a gif demo to show the trajectories.
 
 
 
-
 ### Part II: Reflected Schrödinger bridge
 
 The folder **rSB-FBSDE** demonstrates constrained generative modeling through reflected Schrödinger bridge.
