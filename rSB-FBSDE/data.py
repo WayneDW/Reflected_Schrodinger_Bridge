@@ -20,7 +20,6 @@ def build_boundary_distribution(opt):
     opt.data_dim = get_data_dim(opt.problem_name)
     prior = build_prior_sampler(opt, opt.samp_bs)
     pdata = build_data_sampler(opt, opt.samp_bs)
-
     return pdata, prior
 
 def get_data_dim(problem_name):
@@ -28,6 +27,7 @@ def get_data_dim(problem_name):
         'gmm':          [2],
         'checkerboard': [2],
         'moon-to-spiral': [2],
+        'spiral': [2],
         'smile-to-checkerboard': [2]
     }.get(problem_name)
 
@@ -47,6 +47,7 @@ def build_data_sampler(opt, batch_size):
             'gmm': MixMultiVariateNormal,
             'checkerboard': CheckerBoard,
             'moon-to-spiral': Spiral,
+            'spiral': Spiral,
             'smile-to-checkerboard': CheckerBoard,
         }.get(opt.problem_name)(batch_size, opt)
     else:

@@ -40,7 +40,7 @@ def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
 def is_toy_dataset(opt):
-    return opt.problem_name in ['gmm','checkerboard', 'moon-to-spiral', 'smile-to-checkerboard']
+    return opt.problem_name in ['gmm','checkerboard', 'moon-to-spiral', 'smile-to-checkerboard', 'spiral']
 
 def use_vp_sde(opt):
     return opt.sde_type == 'vp'
@@ -156,6 +156,7 @@ def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
         'checkerboard': [-8.5, 8.5],
         'moon-to-spiral':[-12, 12],
         'smile-to-checkerboard': [-8.5, 8.5],
+        'spiral': [-14, 14]
     }.get(opt.problem_name)
 
     ylims = {
@@ -163,6 +164,7 @@ def save_toy_npy_traj(opt, fn, traj, n_snapshot=None, direction=None):
         'checkerboard': [-8, 9],
         'moon-to-spiral':[-13, 9],
         'smile-to-checkerboard': [-8.5, 8.5],
+        'spiral':[-13, 15],
     }.get(opt.problem_name)
 
     myDomainCurve = get_domain(opt)(radius=opt.domain_radius).position(np.arange(0, 1, 0.001))
