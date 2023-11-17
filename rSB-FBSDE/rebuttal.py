@@ -10,11 +10,10 @@ if len(sys.argv) == 2:
 
 print(f'set up GPU {gpu}')
 
-for _ in range(1):
+for _ in range(20):
     seed = np.random.choice(np.arange(1000))   
-
-    for interval in [20, 80]:
-        lr = 4e-4
+    lr = np.random.choice([4e-4, 3e-4])
+    for interval in [10, 20, 40, 80]:
         FolderName = f'flower_spiral_lr_{lr}_bs_2000_seed_{seed}_time_{interval}'
         print(FolderName)
         try:
