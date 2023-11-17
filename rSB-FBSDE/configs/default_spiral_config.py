@@ -17,10 +17,10 @@ def get_spiral_default_configs():
   config.use_arange_t = True
   config.num_epoch = 1
   config.num_stage = 5
-  config.train_bs_x = 1000 
+  config.train_bs_x = 2000 
   config.sde_type = 'vp' # 'simple' # worked # 'vp' # cause vanilla SB with Linear training to fail
   # sampling
-  config.samp_bs = 1000
+  config.samp_bs = 2000
   config.sigma_min = 0.1
   config.sigma_max = 2
   config.beta_min = 0.1 # 0.03 # the original 0.1/ 20 could recover the shape
