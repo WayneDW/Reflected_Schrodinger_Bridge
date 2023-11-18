@@ -4,6 +4,7 @@ import os, time, gc
 import numpy as np
 
 import torch
+import torch.nn as nn
 import torch.nn.functional as F
 from torch.optim import SGD, RMSprop, Adagrad, AdamW, lr_scheduler, Adam
 from torch.utils.tensorboard import SummaryWriter
@@ -261,6 +262,13 @@ class Runner():
     def sb_alternate_train(self, opt):
         for stage in range(opt.num_stage):
             forward_ep = backward_ep = opt.num_epoch
+
+            if opt.reset_stage == stage:
+                def weight_reset(m):
+                    if isinstance(m, nn.Conv2d) or isinstance(m, nn.Linear):
+                        m.reset_parameters()
+                print(util.yellow('Reset backward network weights to study reduced NFEs.'))
+                self.z_b.apply(weight_reset)            
 
             self.sb_alternate_train_stage(opt, stage, backward_ep, 'backward')
             

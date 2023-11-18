@@ -35,6 +35,7 @@ def set():
     parser.add_argument("--sigma-min",      type=float, default=0.01,     help="min diffusion for VESDE")
     parser.add_argument("--beta-max",       type=float, default=20,       help="max diffusion for VPSDE")
     parser.add_argument("--beta-min",       type=float, default=0.1,      help="min diffusion for VPSDE")
+    parser.add_argument("--reset-stage",    type=int,   default=-1,       help="reset backward network for studying NFEs")
 
     # --------------- SB training & sampling (corrector) ---------------
     parser.add_argument("--train-method",   type=str, default=None,       help="algorithm for training SB" )
@@ -87,7 +88,6 @@ def set():
     parser.set_defaults(**default_config)
 
     opt = parser.parse_args()
-
     # ========= seed & torch setup =========
     if opt.seed is not None:
         # https://github.com/pytorch/pytorch/issues/7068
